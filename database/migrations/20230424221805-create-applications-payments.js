@@ -17,7 +17,7 @@ module.exports = {
           foreingKey: true,
           references:{
             model: 'applications',
-            key: 'id'
+            key: 'user_id'
           },
           onUpdate: 'CASCADE', 
           onDelete: 'RESTRICT'

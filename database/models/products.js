@@ -18,19 +18,19 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     name:{
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     price_id:{
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     description:{
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     }},
     {
     sequelize,

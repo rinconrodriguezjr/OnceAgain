@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       references:{
         model: 'applications',
-        key: 'id'
+        key: 'user_id'
       },
       onUpdate: 'CASCADE', 
       onDelete: 'RESTRICT'

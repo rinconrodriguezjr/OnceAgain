@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey:true,
       references: {
         model: 'users',
-        key: 'id'
+        key: 'user_id'
       },
       onUpdate: 'CASCADE', 
       onDelete: 'RESTRICT'

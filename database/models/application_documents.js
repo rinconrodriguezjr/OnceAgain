@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      ApplicationsDocuments.belongsTo(models.Applications, {as:'application', foreignKey:'application_id'})
+      ApplicationDocuments.belongsTo(models.Applications, {as:'application', foreignKey:'application_id'})
     }
   }
   ApplicationDocuments.init({
