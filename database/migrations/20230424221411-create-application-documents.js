@@ -10,6 +10,7 @@ module.exports = {
           type: Sequelize.UUID,
           primaryKey: true,
           foreingKey: true,
+          unique: true,
           references:{
             model: 'applications',
             key: 'user_id'

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   UsersStripe.init({
     user_id: {
-      allosNull: false,
+      allowNull: false,
       type: DataTypes.UUID,
       primaryKey: true
     },

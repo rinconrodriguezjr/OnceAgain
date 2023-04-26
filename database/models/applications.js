@@ -11,17 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Applications.belongsTo(models.Users,{as:'user', foreignKey:'user_id'})
-      Applications.hasMany(models.ApplicationsPhotos, {as:'photos', foreignKey: 'application_id'})
-      Applications.hasMany(models.ApplicationsDocuments, {as:'documents', foreignKey: 'application_id'})
+      Applications.hasMany(models.ApplicationPhotos, {as:'photos', foreignKey: 'user_id'})
+      Applications.hasMany(models.ApplicationDocuments, {as:'documents', foreignKey: 'user_id'})
       Applications.hasMany(models.ApplicationsPayments, {as:'payments', foreignKey: 'application_id'})
     }
   }
   Applications.init({
-    // id: {
-    //   type:DataTypes.UUID,
-    //   primaryKey: true,
-    //   unique: true
-    // },
     user_id: {
       allowNull: false,
       primaryKey:true,
