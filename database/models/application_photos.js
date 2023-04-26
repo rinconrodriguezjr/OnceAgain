@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      ApplicationPhotos.belongsTo(models.Applications, {as:'application', foreignKey:'user_id'})
+      ApplicationPhotos.belongsTo(models.Applications, {as:'application', foreignKey:'application_id'})
     }
   }
   ApplicationPhotos.init({
@@ -19,15 +19,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.UUID,
       primaryKey: true,
-      unique: true,
-      foreingKey: true,
-      unique: true,
-      references:{
-        model: 'applications',
-        key: 'user_id'
-      },
-      onUpdate: 'CASCADE', 
-      onDelete: 'RESTRICT'
+      // foreingKey: true,
+      // unique: true,
+      // references:{
+      //   model: 'applications',
+      //   key: 'user_id'
+      // },
+      // onUpdate: 'CASCADE', 
+      // onDelete: 'RESTRICT'
     },
     url:{
       allowNull: false,
@@ -36,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     order:{
       allowNull: false,
       type: DataTypes.INTEGER,
+      primaryKey: true,
     }},
     {
     sequelize,
