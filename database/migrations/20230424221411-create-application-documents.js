@@ -23,6 +23,7 @@ module.exports = {
           type: Sequelize.TEXT,
         },
         order:{
+          primaryKey: true,
           allowNull: false,
           type: Sequelize.INTEGER,
         },

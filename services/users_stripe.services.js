@@ -4,7 +4,7 @@ const { Op } = require('sequelize')
 const  {CustomError}  = require('../utils/helpers');
 const { hashPassword } = require('../libs/bcrypt');
 
-class UsersService {
+class UsersStripeService {
 
   constructor() {
   }
@@ -20,14 +20,17 @@ class UsersService {
       options.offset = offset
     }
 
-    const { id } = query
-    if (id) {
-      options.where.id = id
+    const { user_id } = query
+    if (user_id) {
+      options.where.user_id = { [Op.iLike]: `%${user_id}`}
     }
 
-    const { email } = query
-    if (email) {
-      options.where.email = { [Op.iLike]: `%${email}%` }
+    //Necesario para el findAndCountAll de Sequelize
+    options.distinct = true
+
+    const { client_id } = query
+    if (client_id) {
+      options.where.client_id = { [Op.iLike]: `%${client_id}%` }
     }
 
     //Necesario para el findAndCountAll de Sequelize
@@ -173,4 +176,4 @@ class UsersService {
 
 }
 
-module.exports = UsersService
+module.exports = UsersStripeService
